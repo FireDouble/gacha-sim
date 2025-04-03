@@ -1,0 +1,44 @@
+{
+    "name": "Genshin Impact",
+    "asset_dir": "genshin",
+
+    "refund_name": "Masterless Starglitter",
+    "upper_rarity": "5★",
+    "lower_rarity": "4★",
+
+    "refund_cost": 5,
+    "settings": [
+        {
+            "name": "Character",
+            "base_rate": 0.006,
+            "limited_rate": 0.5,
+            "limited_options": 1,
+            "guaranteed_after": 1,
+            "hard_pity": 90,
+            "soft_pity": 74,
+            "soft_pity_increment": 0.06,
+
+            
+            "lower_base_rate": 0.051,
+            "lower_hard_pity": 10,
+            "refund_on_lower": 2,
+            "refund_on_lower_maxed": 5
+        },
+        {
+            "name": "Weapon",
+            "base_rate": 0.006,
+            "limited_rate": 0.75,
+            "limited_options": 2,
+            "guaranteed_after": 1,
+            "hard_pity": 80,
+            "soft_pity": 64,
+            "soft_pity_increment": 0.06,
+
+            
+            "lower_base_rate": 0.051,
+            "lower_hard_pity": 10,
+            "refund_on_lower": 2,
+            "refund_on_lower_maxed": 2
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "name": "Zenless Zone Zero",
+    "asset_dir": "zzz",
+
+    "refund_name": "Residue Signals",
+    "upper_rarity": "S-Rank",
+    "lower_rarity": "A-Rank",
+
+    "refund_cost": 0,
+    "settings": [
+        {
+            "name": "Agent",
+            "base_rate": 0.006,
+            "limited_rate": 0.5,
+            "limited_options": 1,
+            "guaranteed_after": 1,
+            "hard_pity": 90,
+            "soft_pity": 74,
+            "soft_pity_increment": 0.06,
+
+            
+            "lower_base_rate": 0.051,
+            "lower_hard_pity": 10,
+            "refund_on_lower": 0,
+            "refund_on_lower_maxed": 0
+        },
+        {
+            "name": "W-Engine",
+            "base_rate": 0.006,
+            "limited_rate": 0.75,
+            "limited_options": 1,
+            "guaranteed_after": 1,
+            "hard_pity": 80,
+            "soft_pity": 64,
+            "soft_pity_increment": 0.06,
+
+            
+            "lower_base_rate": 0.051,
+            "lower_hard_pity": 10,
+            "refund_on_lower": 0,
+            "refund_on_lower_maxed": 0
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "name": "Honkai: Star Rail",
+    "asset_dir": "hsr",
+
+    "refund_name": "Undying Starlight",
+    "upper_rarity": "5★",
+    "lower_rarity": "4★",
+
+    "refund_cost": 20,
+    "settings": [
+        {
+            "name": "Character",
+            "base_rate": 0.006, 
+            "limited_rate": 0.5,
+            "limited_options": 1,
+            "guaranteed_after": 1,
+            "hard_pity": 90,
+            "soft_pity": 74,
+            "soft_pity_increment": 0.06,
+
+            
+            "lower_base_rate": 0.051,
+            "lower_hard_pity": 10,
+            "refund_on_lower": 8,
+            "refund_on_lower_maxed": 20
+        },
+        {
+            "name": "Light Cone",
+            "base_rate": 0.006,
+            "limited_rate": 0.75,
+            "limited_options": 1,
+            "guaranteed_after": 1,
+            "hard_pity": 80,
+            "soft_pity": 64,
+            "soft_pity_increment": 0.06,
+
+            
+            "lower_base_rate": 0.051,
+            "lower_hard_pity": 10,
+            "refund_on_lower": 8,
+            "refund_on_lower_maxed": 8
+        }
+    ]
+}
