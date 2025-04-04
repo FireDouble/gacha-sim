@@ -86,7 +86,7 @@ export function simulation(inputs) {
                     data.lower_pity = 0;
                     data.pity++;
 
-                    data.refund += settings.refund_on_lower;
+                    data.refund += target.maxed_lower ? settings.refund_on_lower_maxed : settings.refund_on_lower;
                     
                     break;
                 }
