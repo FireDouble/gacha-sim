@@ -18,7 +18,6 @@
             "guaranteed_after": 1,
             "hard_pity": 90,
             "soft_pity": 74,
-            "soft_pity_increment": 0.06,
 
             
             "lower_base_rate": 0.051,
@@ -34,7 +33,6 @@
             "guaranteed_after": 1,
             "hard_pity": 80,
             "soft_pity": 64,
-            "soft_pity_increment": 0.06,
 
             
             "lower_base_rate": 0.051,

@@ -123,7 +123,7 @@ export function simulation(inputs) {
 
 function pull(settings, data) {
     let rng1 = Math.random();
-    let rate = settings.base_rate + settings.soft_pity_increment * Math.max(data.pity - settings.soft_pity, 0);
+    let rate = settings.base_rate + 100 / (settings.hard_pity - settings.soft_pity) * Math.max(data.pity - settings.soft_pity, 0);
 
     if (rng1 <= rate || data.pity + 1 == settings.hard_pity) {
         if (data.is_guaranteed) {
