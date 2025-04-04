@@ -1,4 +1,5 @@
 import { mount } from 'svelte'
+// @ts-ignore
 import App from './App.svelte'
 
 const app = mount(App, {
