@@ -60,21 +60,24 @@ export function simulation(inputs) {
             switch (succ) {
                 case PullResult.Limited: {
                     data.copies++;
-                    data.is_guaranteed = settings.guaranteed_after == 0;
                     data.losses = 0;
                     
                     data.pity = 0;
                     data.lower_pity++;
 
+
+                    data.is_guaranteed = settings.guaranteed_after == 0;
+
                     break;
                 }
 
                 case PullResult.Standard: {
-                    data.is_guaranteed = data.losses >= settings.guaranteed_after;
                     data.losses++;
-
                     data.pity = 0;
                     data.lower_pity++;
+
+
+                    data.is_guaranteed = data.losses >= settings.guaranteed_after;
 
                     break;
                 }
