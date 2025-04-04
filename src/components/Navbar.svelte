@@ -45,16 +45,15 @@
             },
 
             assets_dir: templates[i].asset_dir,
-
             tooltips: {
-                pulls: "Number of Pulls to spend",
-                simulations: "Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations",
-                refund: "Number of {refund} currently owned",
+                pulls: `Number of Pulls to spend`,
+                simulations: `Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations`,
+                refund: `Number of ${templates[i].names.refund} currently owned`,
 
-                pity: "Number of Pulls since your last 5★ {name}",
-                copies: "Desired quantity of 5★ Limited {name}",
+                pity: `Number of Pulls since your last ${templates[i].names.upper_rarity} {name}`,
+                copies: `Desired quantity of ${templates[i].names.upper_rarity} Limited {name}`,
 
-                lower_pity: "Number of Pulls since your last 4★ {name}",
+                lower_pity: `Number of Pulls since your last ${templates[i].names.lower_rarity} {name}`,
             },
 
             refund_name: templates[i].refund_name,

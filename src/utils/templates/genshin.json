@@ -2,9 +2,11 @@
     "name": "Genshin Impact",
     "asset_dir": "genshin",
 
-    "refund_name": "Masterless Starglitter",
-    "upper_rarity": "5★",
-    "lower_rarity": "4★",
+    "names": {
+        "refund": "Masterless Starglitter",
+        "upper_rarity": "5★",
+        "lower_rarity": "4★"
+    },
 
     "refund_cost": 5,
     "settings": [

@@ -2,9 +2,11 @@
     "name": "Wuthering Waves",
     "asset_dir": "wuwa",
 
-    "refund_name": "Afterglow Corals",
-    "upper_rarity": "5★",
-    "lower_rarity": "4★",
+    "names": {
+        "refund": "Afterglow Corals",
+        "upper_rarity": "5★",
+        "lower_rarity": "4★"
+    },
 
     "refund_cost": 8,
     "settings": [

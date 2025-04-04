@@ -2,9 +2,11 @@
     "name": "Honkai: Star Rail",
     "asset_dir": "hsr",
 
-    "refund_name": "Undying Starlight",
-    "upper_rarity": "5★",
-    "lower_rarity": "4★",
+    "names": {
+        "refund": "Undying Starlight",
+        "upper_rarity": "5★",
+        "lower_rarity": "4★"
+    },
 
     "refund_cost": 20,
     "settings": [

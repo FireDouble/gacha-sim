@@ -2,9 +2,11 @@
     "name": "Zenless Zone Zero",
     "asset_dir": "zzz",
 
-    "refund_name": "Residue Signals",
-    "upper_rarity": "S-Rank",
-    "lower_rarity": "A-Rank",
+    "names": {
+        "refund": "Residue Signals",
+        "upper_rarity": "S-Rank",
+        "lower_rarity": "A-Rank"
+    },
 
     "refund_cost": 0,
     "settings": [

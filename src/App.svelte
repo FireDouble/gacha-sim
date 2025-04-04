@@ -34,16 +34,15 @@
             },
 
             assets_dir: templates[0].asset_dir,
-
             tooltips: {
-                pulls: "Number of Pulls to spend",
-                simulations: "Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations",
-                refund: "Number of {refund} currently owned",
+                pulls: `Number of Pulls to spend`,
+                simulations: `Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations`,
+                refund: `Number of ${templates[0].names.refund} currently owned`,
 
-                pity: "Number of Pulls since your last 5★ {name}",
-                copies: "Desired quantity of 5★ Limited {name}",
+                pity: `Number of Pulls since your last ${templates[0].names.upper_rarity} {name}`,
+                copies: `Desired quantity of ${templates[0].names.upper_rarity} Limited {name}`,
 
-                lower_pity: "Number of Pulls since your last 4★ {name}",
+                lower_pity: `Number of Pulls since your last ${templates[0].names.lower_rarity} {name}`,
             },
 
             refund_name: templates[0].refund_name,

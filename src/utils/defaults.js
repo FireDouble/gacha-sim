@@ -21,9 +21,12 @@ export function get_empty_app_state() {
         tooltips: {
             pulls: "",
             simulations: "",
+            refund: "",
+
             pity: "",
             copies: "",
-            refund: "",
+
+            lower_pity: ""
         },
 
         results: {
@@ -36,8 +39,6 @@ export function get_empty_app_state() {
         simulations: 10000,
         refund_count: null,
         refund: true,
-
-        refund_name: "",
 
         refund_cost: 0,
         targets: [],
