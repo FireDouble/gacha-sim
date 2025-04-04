@@ -10,7 +10,9 @@
         "
     >
         {label}
-        <Tooltip message={tooltip} />
+        {#if tooltip != ''}
+            <Tooltip message={tooltip} />
+        {/if}
     </div>
 </div>
 
