@@ -17,6 +17,18 @@ export function get_default_targets() {
 
 export function get_empty_app_state() {
     return {
+        pulls: null,
+        simulations: 10000,
+        refund_count: null,
+        refund: true,
+        results: {
+            odds: null,
+            body: null,
+            array: null,
+        },
+
+        custom: true,
+
         assets_dir: "",
         tooltips: {
             pulls: "",
@@ -28,17 +40,6 @@ export function get_empty_app_state() {
 
             lower_pity: ""
         },
-
-        results: {
-            odds: null,
-            body: null,
-            array: null,
-        },
-
-        pulls: null,
-        simulations: 10000,
-        refund_count: null,
-        refund: true,
 
         refund_cost: 0,
         targets: [],

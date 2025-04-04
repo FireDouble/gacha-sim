@@ -1,17 +1,34 @@
 <Navbar bind:app_state/>
 
-<main class="flex flex-col justify-center items-center m-2">
-    <Simulator
-        bind:app_state
-        {disabled}
-        {on_simulate}
-    />
-</main>
+{#if app_state.custom}
+    <main class="flex m-2">
+        <div class="w-full bg-gray-700 rounded-xl shadow-lg p-6 space-y-4">
+            <Creator bind:app_state/>
+        </div>
+        <div class="w-full justify-center flex">
+            <Simulator
+                bind:app_state
+                {disabled}
+                {on_simulate}
+            />
+        </div>
+        
+    </main>
+{:else }
+    <main class="flex flex-col justify-center items-center m-2">
+        <Simulator
+            bind:app_state
+            {disabled}
+            {on_simulate}
+        />
+    </main>
+{/if}
 
 
 <script>
     import Simulator from "./components/Simulator.svelte";
-    import Navbar from "./components/Navbar.svelte"
+    import Navbar from "./components/Navbar.svelte";
+    import Creator from "./components/Creator.svelte";
     import { get_templates } from "./utils/templates.js";
     import { simulations } from "./utils/simulation";
     import { strip_map } from "./utils/strip_map";
@@ -33,6 +50,7 @@
                 array: null,
             },
 
+            custom: false,
             assets_dir: templates[0].asset_dir,
             tooltips: {
                 pulls: `Number of Pulls to spend`,
@@ -44,8 +62,6 @@
 
                 lower_pity: `Number of Pulls since your last ${templates[0].names.lower_rarity} {name}`,
             },
-
-            refund_name: templates[0].refund_name,
 
             refund_cost: templates[0].refund_cost,
             targets: get_default_targets(),
