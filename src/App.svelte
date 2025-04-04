@@ -37,7 +37,8 @@
 
     let app_state = $state(get_empty_app_state());
     onMount(async () => {
-        let templates = await get_templates();
+        const templates = await get_templates();
+        const template = templates[0];
 
         app_state = {
             pulls: null,
@@ -51,32 +52,30 @@
             },
 
             custom: false,
-            assets_dir: templates[0].asset_dir,
+            assets_dir: template.asset_dir,
             tooltips: {
                 pulls: `Number of Pulls to spend`,
                 simulations: `Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations`,
-                refund: `Number of ${templates[0].names.refund} currently owned`,
+                refund: `Number of ${template.names.refund} currently owned`,
 
-                pity: `Number of Pulls since your last ${templates[0].names.upper_rarity} {name}`,
-                copies: `Desired quantity of ${templates[0].names.upper_rarity} Limited {name}`,
+                pity: `Number of Pulls since your last ${template.names.upper_rarity} {name}`,
+                copies: `Desired quantity of ${template.names.upper_rarity} Limited {name}`,
 
-                lower_pity: `Number of Pulls since your last ${templates[0].names.lower_rarity} {name}`,
+                lower_pity: `Number of Pulls since your last ${template.names.lower_rarity} {name}`,
             },
 
-            refund_cost: templates[0].refund_cost,
-            targets: get_default_targets(),
-            settings: templates[0].settings,
+            refund_cost: template.refund_cost,
+            targets: get_default_targets(template.settings.length),
+            settings: template.settings,
         };
     })
 
     let disabled = $derived(!(
         app_state.pulls > 0 &&
-        app_state.targets[0].pity >= 0 &&
-        app_state.targets[1].pity >= 0 &&
         app_state.simulations > 0 &&
-        (app_state.targets[0].copies > 0 || app_state.targets[1].copies > 0)
+        !app_state.targets.some(target => target.pity < 0) &&
+        app_state.targets.some(target => target.copies !== 0 && target.copies !== null)
     ))
-
 
     async function on_simulate() {
         const data = simulations($state.snapshot(app_state));

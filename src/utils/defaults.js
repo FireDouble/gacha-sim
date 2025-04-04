@@ -1,18 +1,15 @@
-export function get_default_targets() {
-    return [
-        {
-            copies: null,
-            pity: null,
-            is_guaranteed: false,
-            losses: null,
-        },
-        {
+export function get_default_targets(len) {
+    let t = [];
+    for (let i = 0; i < len; i++) {
+        t[i] = {
             copies: null,
             pity: null,
             is_guaranteed: false,
             losses: null,
         }
-    ];
+    }
+
+    return t;
 }
 
 export function get_empty_app_state() {
