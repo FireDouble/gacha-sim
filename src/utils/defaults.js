@@ -24,18 +24,21 @@ export function get_empty_app_state() {
             array: null,
         },
 
-        custom: true,
+        custom: false,
 
         assets_dir: "",
         tooltips: {
             pulls: "",
             simulations: "",
             refund: "",
+            use_refund: "",
 
             pity: "",
             copies: "",
-
-            lower_pity: ""
+            lower_pity: "",
+            lower_pity_maxed: "",
+            guarantee: "",
+            losses: "",
         },
 
         refund_cost: 0,

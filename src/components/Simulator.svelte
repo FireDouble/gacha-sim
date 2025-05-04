@@ -20,9 +20,9 @@
             <Input label="Copies" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.copies.replace("{name}", app_state.settings[i].name)} bind:value={target.copies} />
             {#if app_state.settings[i].guaranteed_after != 0}
                 {#if app_state.settings[i].guaranteed_after == 1}
-                    <Input label="" type="checkbox" text="Guaranteed?" bind:value={target.is_guaranteed} /> 
+                    <Input label="" type="checkbox" text="Guaranteed?" tooltip={app_state.tooltips.guarantee.replace("{count}", "")} bind:value={target.is_guaranteed} /> 
                 {:else}
-                    <Input label="Losses" type="number" placeholder="0" autocomplete="off" bind:value={target.losses} />
+                    <Input label="Losses" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.losses} bind:value={target.losses} />
                 {/if}
             {/if}
         </section>
@@ -31,7 +31,7 @@
                 <Input label="Pity" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.lower_pity.replace("{name}", app_state.settings[i].name)} bind:value={target.lower_pity}/>
 
                 {#if app_state.settings[i].refund_on_lower != app_state.settings[i].refund_on_lower_maxed}
-                    <Input label="" type="checkbox" text="Maxed?" bind:value={target.maxed_lower}/> 
+                    <Input label="" tooltip = {app_state.tooltips.lower_pity_maxed} type="checkbox" text="Maxed?" bind:value={target.maxed_lower}/> 
                 {/if}
             </section>
         {/if}

@@ -20,7 +20,7 @@
 		{/if}
 	</div>
 
-	{#if label}
+	{#if label || tooltip}
 		<div class="flex items-center gap-1 mt-1 text-sm text-gray-500">
 			{label}
 			{#if tooltip}

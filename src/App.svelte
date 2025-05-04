@@ -57,11 +57,14 @@
                 pulls: `Number of Pulls to spend`,
                 simulations: `Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations`,
                 refund: `Number of ${template.names.refund} currently owned`,
+                use_refund: `Whether to convert ${template.names.refund} to Pulls`,
 
                 pity: `Number of Pulls since your last ${template.names.upper_rarity} {name}`,
                 copies: `Desired quantity of ${template.names.upper_rarity} Limited {name}`,
-
                 lower_pity: `Number of Pulls since your last ${template.names.lower_rarity} {name}`,
+                lower_pity_maxed: `Whether all of the ${template.names.lower_rarity} have all of their bonus abilities from duplicate copies unlocked`,
+                guarantee: `Whether your last ${template.names.upper_rarity} was a Standard`,
+                losses: `How many of your last ${template.names.upper_rarity} were Standard`,
             },
 
             refund_cost: template.refund_cost,
