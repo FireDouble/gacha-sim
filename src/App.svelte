@@ -53,6 +53,7 @@
 
             custom: false,
             assets_dir: template.asset_dir,
+            names: template.names,
             tooltips: {
                 pulls: `Number of Pulls to spend`,
                 simulations: `Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations`,

@@ -27,6 +27,11 @@ export function get_empty_app_state() {
         custom: false,
 
         assets_dir: "",
+        names: {
+            refund: "",
+            lower_rarity: "",
+            upper_rarity: "",
+        },
         tooltips: {
             pulls: "",
             simulations: "",
