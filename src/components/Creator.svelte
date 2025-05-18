@@ -33,6 +33,11 @@
     {/each}
 
     <Button text="Add Banner" disabled={false} onclick={on_banner_add} />
+
+    <section class="py-8 flex gap-5">
+        <Button text="Save Template" disabled={false} onclick={on_save_template} />
+        <Button text="Load Template" disabled={false} onclick={on_load_template} />
+    </section>
 </div>
 
 <script>
@@ -50,5 +55,22 @@
     async function on_banner_add() {
         app_state.settings.push(app_state.settings[app_state.settings.length-1]);
         app_state.targets = get_default_targets(app_state.settings.length);
+    }
+
+    async function on_save_template() {
+        const template = {
+            refund_cost: app_state.refund_cost,
+            settings: app_state.settings,
+        };
+
+        localStorage.setItem('gacha_sim_template', JSON.stringify(template));
+    }
+
+    async function on_load_template() {
+        const template = JSON.parse(localStorage.getItem('gacha_sim_template'));
+
+        app_state.refund_cost = template.refund_cost;
+        app_state.settings = template.settings;
+        app_state.targets = get_default_targets(template.settings.length);
     }
 </script>

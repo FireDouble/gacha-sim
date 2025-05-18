@@ -28,7 +28,7 @@
         {
             "name": "Weapon",
             "base_rate": 0.008,
-            "limited_rate": 0.75,
+            "limited_rate": 1,
             "limited_options": 1,
             "guaranteed_after": 0,
             "hard_pity": 80,
