@@ -26,7 +26,7 @@ export function simulations(inputs) {
 }
 
 export function simulation(inputs) {
-    let pulls_left = inputs.pulls;
+    let pulls_left = inputs.pulls + Math.round(inputs.refund_count / inputs.refund_cost);
     let achieved_targets = 0;
 
     for (let i = 0; i < inputs.targets.length; i++) {
@@ -45,7 +45,7 @@ export function simulation(inputs) {
             losses: target.losses,
 
             lower_pity: target.lower_pity,
-            refund: inputs.refund_count,
+            refund: inputs.refund_count - (inputs.refund_cost * Math.round(inputs.refund_count / inputs.refund_cost)),
         };
 
         if (settings.guaranteed_after == 0){
