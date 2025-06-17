@@ -1,9 +1,11 @@
 <div class="w-full max-w-md bg-gray-700 rounded-xl shadow-lg p-6 my-12 space-y-4">
-    <div class="select-none justify-center flex border px-3 py-2 rounded-md border-gray-600 bg-gray-700">
-        <img src="{app_state.assets_dir}/logo.png" alt="Game Logo">
-    </div>
+    {#if app_state.assets_dir != ""}
+        <div class="select-none justify-center flex border px-3 py-2 rounded-md border-gray-600 bg-gray-700">
+            <img src="{app_state.assets_dir}/logo.png" alt="Game Logo">
+        </div>
+    {/if}
 
-    <Title text="Settings" icon='{app_state.assets_dir}/settings.png'/>
+    <Title text="Settings" icon={app_state.assets_dir != "" ? '{app_state.assets_dir}/settings.png' : null}/>
     <section class="flex gap-5">
         <Input label="Pulls" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.pulls} bind:value={app_state.pulls} />
         <Input label="Simulations" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.simulations} bind:value={app_state.simulations} />
@@ -14,7 +16,7 @@
     </section>
 
     {#each app_state.targets as target, i}
-        <Title text={app_state.settings[i].name} icon='{app_state.assets_dir}/banner{i+1}.png'/>
+        <Title text={app_state.settings[i].name} icon={app_state.assets_dir != "" ? '{app_state.assets_dir}/banner{i+1}.png' : null}/>
         <section class="flex gap-5">
             <Input label="Pity" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.pity.replace("{name}", app_state.settings[i].name)} bind:value={target.pity} />
             <Input label="Copies" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.copies.replace("{name}", app_state.settings[i].name)} bind:value={target.copies} />

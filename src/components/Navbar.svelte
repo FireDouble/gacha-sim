@@ -105,6 +105,7 @@
 
     async function custom_template() {
         app_state.custom = true;
+        app_state.assets_dir = "";
         selected = -1;
     }
 </script>
