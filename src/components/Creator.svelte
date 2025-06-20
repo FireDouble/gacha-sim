@@ -37,15 +37,20 @@
     <section class="py-8 flex gap-5">
         <Button text="Save Template" disabled={false} onclick={on_save_template} />
         <Button text="Load Template" disabled={false} onclick={on_load_template} />
+        <Button text="Download Template" disabled={false} onclick={on_download_template}/>
+        <Button text="Upload Template" disabled={false} onclick={fileInput.click()} />
+        <input bind:this={fileInput} type="file" accept="application/json,.json" class="sr-only" onchange={on_upload_template} />
     </section>
 </div>
 
 <script>
     import { get_default_targets } from "../utils/defaults";
+    import { extract_template, update_template } from "../utils/templates";
     import Button from "./Button.svelte";
     import Input from "./Input.svelte";
 
     let { app_state = $bindable() } = $props()
+    let fileInput = $state();
 
     async function on_banner_remove(index) {
         app_state.settings = app_state.settings.toSpliced(index, 1);
@@ -67,7 +72,33 @@
     }
 
     async function on_load_template() {
-        const template = JSON.parse(localStorage.getItem('gacha_sim_template'));
+        let template = JSON.parse(localStorage.getItem('gacha_sim_template'));
+        template = update_template(template);
+
+        app_state.refund_cost = template.refund_cost;
+        app_state.settings = template.settings;
+        app_state.targets = get_default_targets(template.settings.length);
+    }
+
+    async function on_download_template() {
+        let blob = new Blob([JSON.stringify(extract_template(app_state), null, 2)], { type: "application/json" });
+        let url = URL.createObjectURL(blob);
+
+        let a = document.createElement("a");
+        a.href = url;
+        a.download = "template.json";
+        a.style.display = "none";
+        document.body.appendChild(a);
+
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    }
+
+    async function on_upload_template(event) {
+        let file = event.target.files[0];
+        let template = JSON.parse(await file.text());
+        template = update_template(template);
 
         app_state.refund_cost = template.refund_cost;
         app_state.settings = template.settings;
