@@ -5,7 +5,7 @@
         </div>
     {/if}
 
-    <Title text="Settings" icon={app_state.assets_dir != "" ? '{app_state.assets_dir}/settings.png' : null}/>
+    <Title text="Settings" icon={app_state.assets_dir != "" ? `${app_state.assets_dir}/settings.png` : null}/>
     <section class="flex gap-5">
         <Input label="Pulls" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.pulls} bind:value={app_state.pulls} />
         <Input label="Simulations" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.simulations} bind:value={app_state.simulations} />
@@ -16,7 +16,7 @@
     </section>
 
     {#each app_state.targets as target, i}
-        <Title text={app_state.settings[i].name} icon={app_state.assets_dir != "" ? '{app_state.assets_dir}/banner{i+1}.png' : null}/>
+        <Title text={app_state.settings[i].name} icon={app_state.assets_dir != "" ? `${app_state.assets_dir}/banner${i+1}.png` : null}/>
         <section class="flex gap-5">
             <Input label="Pity" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.pity.replace("{name}", app_state.settings[i].name)} bind:value={target.pity} />
             <Input label="Copies" type="number" placeholder="0" autocomplete="off" tooltip={app_state.tooltips.copies.replace("{name}", app_state.settings[i].name)} bind:value={target.copies} />

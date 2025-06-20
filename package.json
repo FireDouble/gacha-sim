@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -o ./src/tailwind.css --watch & vite",
-    "build": "npx @tailwindcss/cli -o ./src/tailwind.css && vite build",
+    "dev": "npx @tailwindcss/cli -o ./src/public/tailwind.css --watch & vite",
+    "build": "npx @tailwindcss/cli -o ./src/public/tailwind.css && vite build",
     "preview": "vite preview",
     "deploy": "npx gh-pages -d dist"
   },
