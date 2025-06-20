@@ -1,10 +1,13 @@
 {
+    "version": "1.0",
     "name": "Genshin Impact",
     "asset_dir": "genshin",
 
-    "refund_name": "Masterless Starglitter",
-    "upper_rarity": "5★",
-    "lower_rarity": "4★",
+    "names": {
+        "refund": "Masterless Starglitter",
+        "upper_rarity": "5★",
+        "lower_rarity": "4★"
+    },
 
     "refund_cost": 5,
     "settings": [
@@ -16,7 +19,6 @@
             "guaranteed_after": 1,
             "hard_pity": 90,
             "soft_pity": 74,
-            "soft_pity_increment": 0.06,
 
             
             "lower_base_rate": 0.051,
@@ -32,7 +34,6 @@
             "guaranteed_after": 1,
             "hard_pity": 80,
             "soft_pity": 64,
-            "soft_pity_increment": 0.06,
 
             
             "lower_base_rate": 0.051,

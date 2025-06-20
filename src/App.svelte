@@ -1,17 +1,34 @@
 <Navbar bind:app_state/>
 
-<main class="flex flex-col justify-center items-center m-2">
-    <Simulator
-        bind:app_state
-        {disabled}
-        {on_simulate}
-    />
-</main>
+{#if app_state.custom}
+    <main class="flex m-2">
+        <div class="w-full bg-gray-700 rounded-xl shadow-lg p-6 space-y-4">
+            <Creator bind:app_state/>
+        </div>
+        <div class="w-full justify-center flex">
+            <Simulator
+                bind:app_state
+                {disabled}
+                {on_simulate}
+            />
+        </div>
+        
+    </main>
+{:else }
+    <main class="flex flex-col justify-center items-center m-2">
+        <Simulator
+            bind:app_state
+            {disabled}
+            {on_simulate}
+        />
+    </main>
+{/if}
 
 
 <script>
     import Simulator from "./components/Simulator.svelte";
-    import Navbar from "./components/Navbar.svelte"
+    import Navbar from "./components/Navbar.svelte";
+    import Creator from "./components/Creator.svelte";
     import { get_templates } from "./utils/templates.js";
     import { simulations } from "./utils/simulation";
     import { strip_map } from "./utils/strip_map";
@@ -20,7 +37,8 @@
 
     let app_state = $state(get_empty_app_state());
     onMount(async () => {
-        let templates = await get_templates();
+        const templates = await get_templates();
+        const template = templates[0];
 
         app_state = {
             pulls: null,
@@ -33,35 +51,35 @@
                 array: null,
             },
 
-            assets_dir: templates[0].asset_dir,
-
+            custom: false,
+            assets_dir: template.asset_dir,
+            names: template.names,
             tooltips: {
-                pulls: "Number of Pulls to spend",
-                simulations: "Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations",
-                refund: "Number of {refund} currently owned",
+                pulls: `Number of Pulls to spend`,
+                simulations: `Increasing the number of simulations will yield more accurate results but will extend the time required for warp calculations`,
+                refund: `Number of ${template.names.refund} currently owned`,
+                use_refund: `Whether to convert ${template.names.refund} to Pulls`,
 
-                pity: "Number of Pulls since your last 5★ {name}",
-                copies: "Desired quantity of 5★ Limited {name}",
-
-                lower_pity: "Number of Pulls since your last 4★ {name}",
+                pity: `Number of Pulls since your last ${template.names.upper_rarity} {name}`,
+                copies: `Desired quantity of ${template.names.upper_rarity} Limited {name}`,
+                lower_pity: `Number of Pulls since your last ${template.names.lower_rarity} {name}`,
+                lower_pity_maxed: `Whether all of the ${template.names.lower_rarity} have all of their bonus abilities from duplicate copies unlocked`,
+                guarantee: `Whether your last ${template.names.upper_rarity} was a Standard`,
+                losses: `How many of your last ${template.names.upper_rarity} were Standard`,
             },
 
-            refund_name: templates[0].refund_name,
-
-            refund_cost: templates[0].refund_cost,
-            targets: get_default_targets(),
-            settings: templates[0].settings,
+            refund_cost: template.refund_cost,
+            targets: get_default_targets(template.settings.length),
+            settings: template.settings,
         };
     })
 
     let disabled = $derived(!(
         app_state.pulls > 0 &&
-        app_state.targets[0].pity >= 0 &&
-        app_state.targets[1].pity >= 0 &&
         app_state.simulations > 0 &&
-        (app_state.targets[0].copies > 0 || app_state.targets[1].copies > 0)
+        !app_state.targets.some(target => target.pity < 0) &&
+        app_state.targets.some(target => target.copies !== 0 && target.copies !== null)
     ))
-
 
     async function on_simulate() {
         const data = simulations($state.snapshot(app_state));

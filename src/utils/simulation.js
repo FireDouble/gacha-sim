@@ -26,7 +26,7 @@ export function simulations(inputs) {
 }
 
 export function simulation(inputs) {
-    let pulls_left = inputs.pulls;
+    let pulls_left = inputs.pulls + Math.round(inputs.refund_count / inputs.refund_cost);
     let achieved_targets = 0;
 
     for (let i = 0; i < inputs.targets.length; i++) {
@@ -45,7 +45,7 @@ export function simulation(inputs) {
             losses: target.losses,
 
             lower_pity: target.lower_pity,
-            refund: inputs.refund_count,
+            refund: inputs.refund_count - (inputs.refund_cost * Math.round(inputs.refund_count / inputs.refund_cost)),
         };
 
         if (settings.guaranteed_after == 0){
@@ -86,7 +86,7 @@ export function simulation(inputs) {
                     data.lower_pity = 0;
                     data.pity++;
 
-                    data.refund += settings.refund_on_lower;
+                    data.refund += target.maxed_lower ? settings.refund_on_lower_maxed : settings.refund_on_lower;
                     
                     break;
                 }
@@ -123,7 +123,7 @@ export function simulation(inputs) {
 
 function pull(settings, data) {
     let rng1 = Math.random();
-    let rate = settings.base_rate + settings.soft_pity_increment * Math.max(data.pity - settings.soft_pity, 0);
+    let rate = settings.base_rate + 100 / (settings.hard_pity - settings.soft_pity) * Math.max(data.pity - settings.soft_pity, 0);
 
     if (rng1 <= rate || data.pity + 1 == settings.hard_pity) {
         if (data.is_guaranteed) {

@@ -1,6 +1,5 @@
 import { mount } from 'svelte'
-import './tailwind.css'
-import './globals.css'
+// @ts-ignore
 import App from './App.svelte'
 
 const app = mount(App, {

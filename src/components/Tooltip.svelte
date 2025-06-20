@@ -7,11 +7,6 @@
         "
     >
         <div class="flex max-w-xs flex-col items-center shadow-lg">
-            <div
-                class="
-                    z=50 [clip-path:polygon(50%_0%, 100%_100%, 0%_100%)] h-2 w-4 bh-gray-400
-                "
-            ></div>
             <div class="rounded bg-gray-400 p-2 text-center text-xs text-gray-800">
                 {message.message}
             </div>

@@ -1,10 +1,13 @@
 {
+    "version": "1.0",
     "name": "Zenless Zone Zero",
     "asset_dir": "zzz",
 
-    "refund_name": "Residue Signals",
-    "upper_rarity": "S-Rank",
-    "lower_rarity": "A-Rank",
+    "names": {
+        "refund": "Residue Signals",
+        "upper_rarity": "S-Rank",
+        "lower_rarity": "A-Rank"
+    },
 
     "refund_cost": 0,
     "settings": [
@@ -16,7 +19,6 @@
             "guaranteed_after": 1,
             "hard_pity": 90,
             "soft_pity": 74,
-            "soft_pity_increment": 0.06,
 
             
             "lower_base_rate": 0.051,
@@ -32,7 +34,6 @@
             "guaranteed_after": 1,
             "hard_pity": 80,
             "soft_pity": 64,
-            "soft_pity_increment": 0.06,
 
             
             "lower_base_rate": 0.051,

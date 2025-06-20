@@ -1,10 +1,13 @@
 {
+    "version": "1.0",
     "name": "Wuthering Waves",
     "asset_dir": "wuwa",
 
-    "refund_name": "Afterglow Corals",
-    "upper_rarity": "5★",
-    "lower_rarity": "4★",
+    "names": {
+        "refund": "Afterglow Corals",
+        "upper_rarity": "5★",
+        "lower_rarity": "4★"
+    },
 
     "refund_cost": 8,
     "settings": [
@@ -16,7 +19,6 @@
             "guaranteed_after": 1,
             "hard_pity": 80,
             "soft_pity": 64,
-            "soft_pity_increment": 0.06,
 
             
             "lower_base_rate": 0.051,
@@ -27,12 +29,11 @@
         {
             "name": "Weapon",
             "base_rate": 0.008,
-            "limited_rate": 0.75,
+            "limited_rate": 1,
             "limited_options": 1,
             "guaranteed_after": 0,
             "hard_pity": 80,
             "soft_pity": 64,
-            "soft_pity_increment": 0.06,
 
             
             "lower_base_rate": 0.051,
